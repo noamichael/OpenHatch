@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:fragment rendered="#{!loginBean.loggedIn}">
+            <h:panelGrid columns="2" style="margin: 0 auto;">
+                <h:form>
+                    <h:panelGrid columns="1">
+                        <p:inputText placeholder="Login Name" id="user" value="#{loginBean.loginName}"/>
+                        <p:password placeholder="Password" id="password" value="#{loginBean.password}"/>
+                        <p:commandButton ajax="false" value="Login" action="#{loginBean.login()}"/>
+                    </h:panelGrid>
+                </h:form>
+                <h:form>
+                    <h:panelGrid columns="1">
+                        <p:inputText placeholder="Login Name" value="#{registerBean.loginName}"/>
+                        <p:password placeholder="Password" value="#{registerBean.password}"/>
+                        <p:password placeholder="Confirm Password" value="#{registerBean.confirmPassword}"/>
+                        <p:commandButton ajax="false" value="Register" action="#{registerBean.register()}"/>
+                    </h:panelGrid>
+                </h:form>
+                <h:form>
+                    <p:messages autoUpdate="true"/>
+                </h:form>
+            </h:panelGrid>
+    </ui:fragment>
+</ui:composition>
