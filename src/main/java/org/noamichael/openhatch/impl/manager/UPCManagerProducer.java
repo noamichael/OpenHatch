@@ -28,7 +28,7 @@ public class UPCManagerProducer {
     @PostConstruct
     public void init() {
         String userType = settings.getUserAccountType().getSimpleName();
-        this.manager = new UserPasswordCredentialManager(emInstance.get(), userType);
+        this.manager = new UserPasswordCredentialManager(getEntityManager(), userType);
     }
 
     @Produces
